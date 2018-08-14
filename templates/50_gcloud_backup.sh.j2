@@ -1,0 +1,5 @@
+#!/bin/bash
+
+{% for item in gcloud_fs_backup %}
+gsutil -m rsync -r {{ item.source }} gs://{{ item.destination }}
+{% endfor %}

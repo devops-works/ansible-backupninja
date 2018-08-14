@@ -1,0 +1,7 @@
+- name: Adds gcloud backup script
+  template:
+    src: 50_gcloud_backup.sh.j2
+    dest: "/etc/backup.d/50_gcloud_backup.sh"
+    owner: root
+    group: root
+    mode: 0644
