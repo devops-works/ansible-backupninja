@@ -1,0 +1,42 @@
+- name: Installs backupninja
+  tags: backupninja
+  apt:
+    pkg: "backupninja"
+    state: present
+
+- name: Adds hourly backup config file
+  tags: backupninja
+  template:
+    src: backupninja.hourly.conf.j2
+    dest: "/etc/backupninja.hourly.conf"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Adds daily backup config file
+  tags: backupninja
+  template:
+    src: backupninja.daily.conf.j2
+    dest: "/etc/backupninja.daily.conf"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Create configuration directories
+  file:
+    path: '{{ item }}'
+    state: directory
+    owner: root
+    group: root
+    mode: 0750
+  with_items:
+    - '/etc/backup.d/hourly'
+    - '/etc/backup.d/daily'
+
+- name: Adds cron file
+  template:
+    src: backupninja.cron.j2
+    dest: "/etc/cron.d/backupninja"
+    owner: root
+    group: root
+    mode: 0644

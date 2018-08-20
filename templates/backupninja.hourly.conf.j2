@@ -1,0 +1,40 @@
+#
+#                          |\_
+# B A C K U P N I N J A   /()/
+#                         `\|
+# main configuration file
+#   ansible-managed !
+#
+
+loglevel = 4
+reportemail = root
+reportsuccess = no
+reportinfo = no
+reportwarning = yes
+reportspace = no
+reporthost = 
+reportuser = ninja
+reportdirectory = /var/lib/backupninja/reports
+admingroup = root
+
+#######################################################
+# for most installations, the defaults below are good #
+#######################################################
+
+# where to log:
+logfile = /var/log/backupninja.log
+
+# directory where all the backup configuration files live
+configdirectory = /etc/backup.d/hourly
+
+# where backupninja helper scripts are found
+scriptdirectory = /usr/share/backupninja
+
+# where backupninja libs are found
+libdirectory = /usr/lib/backupninja
+
+# whether to use colors in the log file
+usecolors = yes
+
+# if running vservers, set to yes
+vservers = no

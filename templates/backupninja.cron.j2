@@ -1,0 +1,10 @@
+# cron tab entry for backupninja
+# ansible-managed
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# run backupninja with hourly config
+{{ 60 |random(seed=inventory_hostname) }} * * * * root /usr/sbin/backupninja -n -f /etc/backupninja.hourly.conf
+
+# run backupninja with daily config
+{{ 60 |random(seed=inventory_hostname) }} {{ 24 |random(seed=inventory_hostname) }} * * * root /usr/sbin/backupninja -n -f /etc/backupninja.daily.conf

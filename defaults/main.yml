@@ -1,5 +1,3 @@
-# backupninja
-backupninja_when: "everyday at 02"
-
 # gcloud backup
-gcloud_backup: FALSE
+gcloud_daily_backup: FALSE
+gcloud_hourly_backup: FALSE

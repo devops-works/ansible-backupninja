@@ -1,21 +1,9 @@
-- name: Installs backupninja
-  tags: backupninja
-  apt:
-    pkg: "backupninja"
-    state: present
+- import_tasks: backupninja.yml
+  tags: 
+    - backupninja
 
-- name: Adds config file
-  tags: backupninja
-  template:
-    src: backupninja.conf.j2
-    dest: "/etc/backupninja.conf"
-    owner: root
-    group: root
-    mode: 0644
-
-- include: gcloud_backup.yml
-  when: gcloud_backup
+- import_tasks: gcloud_backup.yml
   tags: 
     - backupninja:gcloud
-    - backupninja
+    - gcloud
     - gcloud_backup

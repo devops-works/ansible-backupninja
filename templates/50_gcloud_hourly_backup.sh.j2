@@ -1,5 +1,5 @@
 #!/bin/bash
 
-{% for item in gcloud_fs_backup %}
+{% for item in gcloud_hourly_sync %}
 gsutil -m rsync -r {{ item.source }} gs://{{ item.destination }}
 {% endfor %}

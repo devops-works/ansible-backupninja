@@ -1,0 +1,7 @@
+#!/bin/bash
+
+{% for item in gcloud_daily_sync %}
+gsutil -m rsync -r {{ item.source }} gs://{{ item.destination }}
+echo $(date +"%Y%m%d%H%M") > /tmp/timestamp
+gsutil cp /tmp/timestamp gs://{{ item.destination }}
+{% endfor %}

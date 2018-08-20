@@ -15,18 +15,14 @@ If you need to perfom actions after gsutil (like a backup test), just need creat
 
 To use gcloud backup :
   - `ansible-gcloud` must be deploy before ( https://github.com/leucos/ansible-gcloud )
-  - `gcloud_backup` must be `TRUE`
+  - `gcloud_{daily,hourly}_backup` must be `TRUE`
   - `gsutil` must be properly configured
   - `source and destination` must me defined like this :
 
 ```
-gcloud_fs_backup:
+gcloud_{daily,hourly}_sync:
   - source: "/etc"
     destination: "my_bucket/etc/"
   - source: "/home"
     destination: "my_bocket/home/"
 ```
-
-## Other vars
-
-- `backupninja_when` define recurrence. The default value is `everyday at 02`.

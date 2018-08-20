@@ -25,7 +25,7 @@ admingroup = root
 logfile = /var/log/backupninja.log
 
 # directory where all the backup configuration files live
-configdirectory = /etc/backup.d
+configdirectory = /etc/backup.d/daily
 
 # where backupninja helper scripts are found
 scriptdirectory = /usr/share/backupninja
@@ -35,9 +35,6 @@ libdirectory = /usr/lib/backupninja
 
 # whether to use colors in the log file
 usecolors = yes
-
-# default value for 'when'
-when = {{ backupninja_when }} 
 
 # if running vservers, set to yes
 vservers = no

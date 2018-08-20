@@ -1,7 +1,17 @@
-- name: Adds gcloud backup script
+- name: Adds gcloud hourly backup script
+  when: gcloud_hourly_sync is defined
   template:
-    src: 50_gcloud_backup.sh.j2
-    dest: "/etc/backup.d/50_gcloud_backup.sh"
+    src: 50_gcloud_hourly_backup.sh.j2
+    dest: "/etc/backup.d/hourly/50_gcloud_backup.sh"
     owner: root
     group: root
-    mode: 0644
+    mode: 0750
+
+- name: Adds gcloud daily backup script
+  when: gcloud_daily_sync is defined
+  template:
+    src: 50_gcloud_daily_backup.sh.j2
+    dest: "/etc/backup.d/daily/50_gcloud_backup.sh"
+    owner: root
+    group: root
+    mode: 0750
