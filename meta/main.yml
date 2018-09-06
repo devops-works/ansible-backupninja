@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Devops Works
+  description: "Backupninja role"
+  license: MIT
+  min_ansible_version: 1.8
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+  categories:
+    - system
+
+dependencies:
+  - src: git+ssh://git@github.com/leucos/ansible-gcloud.git
+    name: ansible-sysctl
