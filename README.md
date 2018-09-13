@@ -5,6 +5,13 @@
 
 This role install backupninja and can install backup scripts for gcloud.
 
+
+| Branch        | Status          |
+| :-----------: | :-------------: |
+| [master](https://github.com/devops-works/ansible-backupninja) | [![Build Status](https://travis-ci.org/devops-works/ansible-backupninja.svg?branch=master)](https://travis-ci.org/devops-works/ansible-backupninja) |
+| [devel](https://github.com/devops-works/ansible-backupninja/tree/devel) | [![Build Status](https://travis-ci.org/devops-works/ansible-backupninja.svg?branch=devel)](https://travis-ci.org/devops-works/ansible-backupninja) |
+
+
 ## actions before of after gsutil backup
 
 All backups instructions are defined in `/etc/backup.d`. gcloud is `50_` prefixed. Actions will be performed in alphabetical order. If you want a mysql dump before gcloud rsync you must create a file like `40_dump.mysql`.
@@ -24,5 +31,5 @@ gcloud_{daily,hourly}_sync:
   - source: "/etc"
     destination: "my_bucket/etc/"
   - source: "/home"
-    destination: "my_bocket/home/"
+    destination: "my_bucket/home/"
 ```
