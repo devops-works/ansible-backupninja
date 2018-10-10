@@ -11,6 +11,8 @@ All backups instructions are defined in `/etc/backup.d`. gcloud is `50_` prefixe
 
 If you need to perfom actions after gsutil (like a backup test), just need create a file like `60_call-jenkins-test-backup.sh` if it's a shell script.
 
+For test you can set `backupninja_reportsuccess` to `yes` in inventory. All backups will trigger an email.
+
 ## gcloud backup
 
 To use gcloud backup :
