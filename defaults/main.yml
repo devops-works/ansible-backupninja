@@ -1,3 +1,4 @@
 # gcloud backup
 gcloud_daily_backup: FALSE
 gcloud_hourly_backup: FALSE
+backupninja_reportsuccess: no
